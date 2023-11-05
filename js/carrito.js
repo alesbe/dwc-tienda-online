@@ -86,7 +86,7 @@ class Carrito{
 		thEl.textContent = "total"
 		tHeadEl.appendChild(thEl)
 
-		thEl.textContent = "asd"
+		thEl.textContent = ""
 		tHeadEl.appendChild(thEl)
 
 		tableEl.appendChild(tHeadEl);
