@@ -116,8 +116,12 @@ function ponArticuloEnCarrito(articulo) {
 	carrito.anyadeArticulo(articulo);
 }
 
-function verCarro() {
+function verCarrito() {
 	carrito.verCarrito();
+}
+
+function pintarArticulosCarrito() {
+
 }
 
 function efectuaPedido() {
@@ -125,11 +129,10 @@ function efectuaPedido() {
 }
 
 window.onload=()=> {
-	carrito = new Carrito(1);
-	verCarritoEl.addEventListener("click", () => { verCarro() })
-
 	pintaListaCriterios();
+
+	carrito = new Carrito(1);
+	verCarritoEl.addEventListener("click", () => { verCarrito() })
+
 	pintaArticulos(criteriosOrdenacionEl.value);
-
-
 }
