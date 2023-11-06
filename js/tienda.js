@@ -120,12 +120,8 @@ function verCarrito() {
 	carrito.verCarrito();
 }
 
-function pintarArticulosCarrito() {
-
-}
-
-function efectuaPedido() {
-
+function efectuaPedido(carrito) {
+	console.log(JSON.stringify(carrito.articulos));
 }
 
 window.onload=()=> {
@@ -135,4 +131,11 @@ window.onload=()=> {
 	verCarritoEl.addEventListener("click", () => { verCarrito() })
 
 	pintaArticulos(criteriosOrdenacionEl.value);
+
+	document.getElementById("btnCierraDialog").addEventListener("click", () => {
+		document.getElementById("miDialogo").close();
+	})
+	document.getElementById("btnEfectuaPedido").addEventListener("click", () => {
+		efectuaPedido(carrito);
+	})
 }
