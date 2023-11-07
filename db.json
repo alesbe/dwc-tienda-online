@@ -1,0 +1,44 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "id": 2,
+      "title": "my-post",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    },
+    {
+      "id": 2,
+      "body": "im a yipiyo comment",
+      "postId": 1
+    },
+    {
+      "id": 3,
+      "body": "i dont know what to say",
+      "postId": 1
+    },
+    {
+      "id": 4,
+      "body": "lmao",
+      "postId": 2
+    },
+    {
+      "id": 5,
+      "body": "my face when",
+      "postId": 2
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

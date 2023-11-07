@@ -50,20 +50,16 @@ class Carrito{
 	}
 
 	pintarArticulos() {
+		let dialogContentEl = document.getElementById("dialogContent");
+		dialogContentEl.innerHTML = "";
+
 		// Pintar ID
 		document.getElementById("idPedido").textContent = `id: ${this.id}`;
 
 		// Pintar precio
 		document.getElementById("total").textContent = `${this.calcularPrecio()}€`;
 
-		// Pintar articulos
-		let dialogContentEl = document.getElementById("dialogContent");
-		dialogContentEl.innerHTML = "";
-
-		document.getElementById("idPedido").textContent = `id: ${this.id}`;
-		document.getElementById("total").textContent = `${this.calcularPrecio()}€`;
-
-		// Build table head
+		// Pintar table head
 		let tableEl = document.createElement("table");
 		tableEl.classList.add("table");
 		tableEl.classList.add("table-striped");
@@ -82,9 +78,9 @@ class Carrito{
 		tHeadEl.appendChild(trEl);
 		tableEl.appendChild(tHeadEl);
 
+		// Pintar table body
 		let tBodyEl = document.createElement("tbody");
 
-		// Build table rows
 		this.articulos.forEach(articulo => {
 			let trEl = document.createElement("tr");
 			let tdEl = document.createElement("td");
@@ -97,25 +93,13 @@ class Carrito{
 			tdEl.appendChild(imgEl);
 			trEl.appendChild(tdEl);
 
-			// Articulo name
-			tdEl = document.createElement("td");
-			tdEl.textContent = articulo.nombre;
-			trEl.appendChild(tdEl);
-
-			// Articulo descripcion
-			tdEl = document.createElement("td");
-			tdEl.textContent = articulo.descripcion;
-			trEl.appendChild(tdEl);
-
-			// Articulo precio
-			tdEl = document.createElement("td");
-			tdEl.textContent = articulo.precio;
-			trEl.appendChild(tdEl);
-
-			// Articulo unidades
-			tdEl = document.createElement("td");
-			tdEl.textContent = articulo.qty;
-			trEl.appendChild(tdEl);
+			// Articulo properties
+			let articuloProps = [articulo.nombre, articulo.descripcion, articulo.precio, articulo.qty];
+			articuloProps.forEach(prop => {
+				tdEl = document.createElement("td");
+				tdEl.textContent = prop;
+				trEl.appendChild(tdEl);
+			})
 
 			// Articulo buttons
 			tdEl = document.createElement("td");
@@ -150,9 +134,9 @@ class Carrito{
 			tdEl.appendChild(buttonEl);
 
 			trEl.appendChild(tdEl);
-
 			tBodyEl.appendChild(trEl);
 		});
+		
 		tableEl.appendChild(tBodyEl);
 
 		dialogContentEl.appendChild(tableEl);
